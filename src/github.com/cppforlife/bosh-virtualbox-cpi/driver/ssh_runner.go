@@ -167,6 +167,7 @@ func (r *SSHRunner) client() (*ssh.Client, error) {
 
 	config := &ssh.ClientConfig{
 		User: r.opts.Username,
+		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 		Auth: []ssh.AuthMethod{ssh.PublicKeys(keySigner)},
 	}
 
